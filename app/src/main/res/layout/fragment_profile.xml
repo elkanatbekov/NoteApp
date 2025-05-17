@@ -3,14 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment">
 
     <ImageView
         android:id="@+id/btn_image"
-        android:background="@drawable/btn_image"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
         android:layout_width="150dp"
-        android:layout_height="170dp"/>
+        android:layout_height="170dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_image"
+        android:scaleType="centerCrop" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="120dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите имя"
+        android:textSize="24sp" />
 
 </FrameLayout>

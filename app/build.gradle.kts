@@ -51,4 +51,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //page indicator
+    implementation(libs.dotsindicator)
+    //Glide
+    implementation (libs.glide)
 }

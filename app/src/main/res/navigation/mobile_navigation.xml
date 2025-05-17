@@ -31,7 +31,12 @@
 
     <fragment
         android:id="@+id/profile_Fragment"
-        android:name="com.example.noteapp.ProfileFragment"
+        android:name="com.example.noteapp.ui.profile.ProfileFragment"
         android:label="@string/fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/boardFragment"
+        android:name="com.example.noteapp.ui.board.BoardFragment"
+        android:label="fragment_board"
+        tools:layout="@layout/fragment_board" />
 </navigation>
