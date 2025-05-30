@@ -31,18 +31,18 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        imagePickerLauncher =
-            registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-                uri?.let {
-                    binding.btnImage.setImageURI(it)
-                }
-            }
+//        imagePickerLauncher =
+//            registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+//                uri?.let {
+//                    binding.btnImage.setImageURI(it)
+//                }
+//            }
+//
+//        binding.btnImage.setOnClickListener {
+//            imagePickerLauncher.launch("image/*")
+//        }
 
-        binding.btnImage.setOnClickListener {
-            imagePickerLauncher.launch("image/*")
-        }
-
-        binding.editText.addTextChangedListener(object: TextWatcher{
+        /*binding.editText.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
@@ -57,7 +57,8 @@ class ProfileFragment : Fragment() {
             }
 
         })
-        binding.editText.setText(Prefs(requireContext()).getName())
+        binding.editText.setText(Prefs(requireContext()).getName())*/
+
 //        Prefs(requireContext()).saveName("")
 //        binding.editText.setText(Prefs(requireContext()).getName())
 

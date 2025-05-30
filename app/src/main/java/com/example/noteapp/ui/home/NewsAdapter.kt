@@ -16,7 +16,7 @@ class NewsAdapter(
 ) :
     Adapter<NewsAdapter.ViewHolder>() {
 
-    private val list = arrayListOf<News>()
+    private var list = arrayListOf<News>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsAdapter.ViewHolder {
         return ViewHolder(
@@ -66,12 +66,24 @@ class NewsAdapter(
         notifyItemRemoved(position)
     }
 
+    fun getItems(list: List<News>) {
+        this.list.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    fun items(list: List<News>) {
+        this.list = list as ArrayList<News>
+        notifyDataSetChanged()
+    }
+
+
     inner class ViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(news: News) {
             binding.textTitle.text = news.title
             binding.textTime.text = news.createdAt
+
 
         }
     }

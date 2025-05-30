@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.noteapp.databinding.FragmentNewsBinding
 import com.example.noteapp.models.News
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.Month
 import java.time.format.DateTimeFormatter
 
 
@@ -40,7 +38,8 @@ class NewsFragment : Fragment() {
         val formatter = DateTimeFormatter.ofPattern("HH:mm, dd MMM yyyy")
         val formatted = time.format(formatter)
         val text = binding.editText.text.toString()
-        val news = News(text, formatted)
+        val news = News(0,text, formatted)
+        App.database.newsDao().insert(news)
         val bundle = bundleOf("news" to news)
         parentFragmentManager.setFragmentResult("rk_news", bundle)
         findNavController().navigateUp()

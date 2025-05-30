@@ -14,6 +14,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.noteapp.databinding.ActivityMainBinding
 import com.example.noteapp.ui.Prefs
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,9 +52,15 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if (!Prefs(this).isShown()) {
-            navController.navigate(R.id.boardFragment)
+        Firebase.auth.signOut() // Принудительно выходим из аккаунта
+
+        if (Firebase.auth.currentUser == null) {
+            navController.navigate(R.id.authFragment)
         }
+
+        //if (!Prefs(this).isShown())
+        navController.navigate(R.id.boardFragment)
+
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             val fragments = arrayListOf(

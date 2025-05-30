@@ -1,8 +1,6 @@
 package com.example.noteapp.ui
 
 import android.content.Context
-import android.view.View
-import com.example.noteapp.R
 
 class Prefs(context: Context) {
 

@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.noteapp.databinding.FragmentBoardBinding
 import com.example.noteapp.models.Board
 import com.example.noteapp.ui.Prefs
-import kotlin.math.log
 
 class BoardFragment : Fragment() {
 
@@ -42,7 +41,7 @@ class BoardFragment : Fragment() {
         binding.dotsIndicator.attachTo(binding.viewPager)
 
         binding.textSkip.setOnClickListener {
-            Prefs(requireContext()).saveState()
+            //Prefs(requireContext()).saveState()
             Log.e("ololo", "onViewCreated prefs: ${Prefs(requireContext()).isShown()}", )
             findNavController().navigateUp()
         }
@@ -51,19 +50,19 @@ class BoardFragment : Fragment() {
     private fun loadData() {
         data.add(
             Board(
-                "https://i.pinimg.com/736x/2d/7e/7b/2d7e7bb168993f388ec802c58efc5da8.jpg",
+                "page1_animation.lottie",
                 "Салам"
             )
         )
         data.add(
             Board(
-                "https://i.pinimg.com/736x/1e/c3/ab/1ec3ab5a3a6f58f2c4fa7ec58605d56f.jpg",
+                "page2_animation.json",
                 "Привет"
             )
         )
         data.add(
             Board(
-                "https://i.pinimg.com/736x/29/6d/e9/296de922fffd4b162474f58fec4232a3.jpg",
+                "page3_animation.json",
                 "Hello"
             )
         )

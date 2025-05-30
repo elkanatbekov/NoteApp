@@ -26,16 +26,20 @@ class BoardAdapter(val context: Context, val navController: NavController, val d
     }
 
     override fun onBindViewHolder(holder: BoardAdapter.ViewHolder, position: Int) {
-        holder.bind(data[position])
+        val item = data[position]
+        holder.bind(item)
+        item.lottieFileName?.let {
+            holder.binding.lottieView.setAnimation(it)
+            holder.binding.lottieView.playAnimation()
+        }
     }
 
     override fun getItemCount(): Int = data.size
 
-    inner class ViewHolder(private val binding: ItemBoardBinding) :
+    inner class ViewHolder(val binding: ItemBoardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(board: Board) {
             binding.textTitle.text = board.title
-            Glide.with(binding.imageView).load(board.image).into(binding.imageView)
             if (position == data.lastIndex /*list.size - 1*/) {
                 binding.btnStart.visibility = View.VISIBLE
             } else {
